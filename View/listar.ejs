@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, td, th{
+            border: 1px solid gray;
+        }
+       button{
+        border-radius: 2%;
+        background-color: rgb(6, 0, 10);
+        color: white;
+       }
+        button:hover{
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <h1>Controle de Tarefas</h1>
+    <button onclick="document.location='/add'">Adicionar</button>
+   <% if (error){ %>
+        <p>Não foi possível listar as tarefas</p>
+    <% } %>
+
+    <% if (tarefas.length>0){ %>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Descrição</th>
+                <th>Status</th>
+                <th>Data de Criação</th>
+                <th colspan="2">Ações</th>
+            </tr>
+                <% tarefas.forEach(tarefa => { %>
+                    <tr> 
+                        <td> <%= tarefa.id %> </td>
+                        <td> <%= tarefa.titulo %> </td>
+                        <td> <%= tarefa.descricao %> </td>
+                        <td> <%= tarefa.status %> </td>
+                        <% const data = new Date(tarefa.datacriacao) %>
+                        <% const dataFormatada = data.toLocaleDateString('pt-BR') %>
+                        <td> <%= dataFormatada %></td>
+                        <td> <a href="/editar/<%= tarefa.id %>">Editar</a></td>
+                        <td> <a href="/excluir/<%= tarefa.id %>">Excluir </a></td>
+                    </tr>
+                <% }) %>
+                
+        </table>
+    <% } %>
+</body>
+</html>

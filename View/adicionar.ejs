@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method='post' action="/add">
+        <label>Título</label>
+        <input type="text" name="titulo" required><br>
+        <label>Descrição</label><br>
+        <textarea name="descricao" cols="20" rows="10"></textarea>
+        <br>
+        <label>Status</label>
+        <select name="status">
+            <option value="Em aberto">Em aberto</option>
+            <option value="Em Andamento">Em Andamento</option>
+            <option value="Finalizada">Finalizada</option>
+        </select>
+        <input type="submit">
+
+    </form>
+</body>
+</html>
